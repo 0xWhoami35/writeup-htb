@@ -45,7 +45,7 @@ Only port 80 and 22 only open so nothing important here
 
  `curl http://zipping.htb/uploads/2734449af42ebfe74df5f6865e2529cd/etc.pdf`
  
- ![](images/2024-01-19-13-52-32.png)
+ ![](images/2024-01-19-13-42-57.png)
 
 &nbsp;
 
