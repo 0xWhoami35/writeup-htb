@@ -61,7 +61,7 @@ Only port 80 and 22 only open so nothing important here
 
 
 
- ![](images`2024-01-19-13-52-32.png)
+ ![](images/2024-01-19-13-52-32.png)
 
 &nbsp;
 
