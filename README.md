@@ -1,4 +1,4 @@
-![](https://0xwhoami35.github.io/writeup-htb/images/2024-01-15-22-52-46.png)
+![](images/2024-01-19-13-06-34.png)
 
 This machine the difficulty is medium by hackthebox.The creator for this box machine is [xdann1](https://app.hackthebox.com/users/535069) . So now i would give your walkthrough for this machine.I hope you enjoy : )
 
