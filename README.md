@@ -14,7 +14,7 @@ First of all check the open port using nmap
 
 
 
- ![](images/2024-01-19-13-13-38.png)
+ ![](https://0xwhoami35.github.io/writeup-htb/images/2024-01-15-22-52-46.png)
 
 
 
