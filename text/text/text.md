@@ -45,7 +45,8 @@ I used setup with a static ip i hope you modify it
 First of all we enumeration with nmap to scan openport 
 ```
 nmap -sC -sV -p- -T4 --min-rate=9326 --vv test.htb        
-Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-01-30 02:44 EST
+Starting Nmap 7.94SVN ( https://nmap.org ) at 
+2024-01-30 02:44 EST
 NSE: Loaded 156 scripts for scanning.
 NSE: Script Pre-scanning.
 NSE: Starting runlevel 1 (of 3) scan.
@@ -73,12 +74,12 @@ Have 2 port only are open so 22 is ssh and 80 is http . So let's we check the we
 
 # Foothold
 
-![](2024-01-30-15-46-41.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-15-46-41.png)
 
 At 'http://test.htb', there was a link to login, and the website was also used Textpattern . After i clicked that link the website would redirect to `/textpattern` and there have a blog page so let's we research about textpattern exploit .
 
 
-![](2024-01-30-15-51-39.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-15-51-39.png)
 
 I found exploit-db and github page let's we review the source code exploit [TextPattern CMS 4.8.7](https://www.exploit-db.com/exploits/49996) here the source code .  There told you go to content section and click `Files` and upload your malicious php file . For access the webshell go to `textpattern/files/shell.php?cmd=ls` before that you need login as admin to access our page .
 
@@ -86,7 +87,7 @@ I found exploit-db and github page let's we review the source code exploit [Text
 To login to the textpattern page, you need to go to 'textpattern/textpattern' and there will be the login page. The website uses a default user pass, so you can login with this user pass, 'admin/admin', and it will redirect you to the admin dashboard so you can upload webshell and access it from the `/files` directory.
 
 
-![](2024-01-30-16-10-06.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-10-06.png)
 
 Click the content above and click `Files`. After that, upload your shell 
 
@@ -97,11 +98,11 @@ Click the content above and click `Files`. After that, upload your shell
 
 Fill that source code and saved it as `shell.php` and upload that 
 
-![](2024-01-30-16-09-24.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-09-24.png)
 
 My webshell successfully uploaded to access the webshell we need go to `textpattern/files/test.php?cmd=ls`
 
-![](2024-01-30-16-10-52.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-10-52.png)
 
 Successfuly remote access so we just revshell to get user access . Let's we revshell to privilege escalation to got user 
 
@@ -128,11 +129,11 @@ $txpcfg['dbcharset'] = 'utf8mb4';
 
 Here the password mysql now i'll try login user as john with the password . To know username u can running `cat /etc/passwd | grep /home`
 
-![](2024-01-30-16-23-26.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-23-26.png)
 
 The username is `john` so i'll try using the password and login as john
 
-![](2024-01-30-16-25-00.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-25-00.png)
 
 Successfully login as john so let's we login ssh as john and privilege to got root access
 
@@ -153,4 +154,4 @@ john can run `/usr/bin/time` with root permision without password so let's we pr
 
 Run this command on your ssh and successfully rooted !!
 
-![](2024-01-30-16-30-51.png)
+![](https://0xwhoami35.github.io/writeup-htb/text/text/2024-01-30-16-30-51.png)
